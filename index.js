@@ -1,21 +1,18 @@
 function createWhiteKey(x, y) {
-    const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-    rect.setAttribute("x", String(x));
-    rect.setAttribute("y", String(y));
-    rect.setAttribute("width", "24");
-    rect.setAttribute("height", "168");
-    rect.setAttribute("fill", "white");
-    rect.setAttribute("stroke", "gray");
-    return rect;
+    return createSVGRect({x, y, width: 24, height: 168, fill: "white"});
 }
 
 function createBlackKey(x, y) {
+    return createSVGRect({x, y, width: 14, height: 112, fill: "black"});
+}
+
+function createSVGRect(rectProps) {
     const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-    rect.setAttribute("x", String(x));
-    rect.setAttribute("y", String(y));
-    rect.setAttribute("width", "14");
-    rect.setAttribute("height", "112");
-    rect.setAttribute("fill", "black");
+    rect.setAttribute("x", rectProps.x);
+    rect.setAttribute("y", rectProps.y);
+    rect.setAttribute("width", rectProps.width);
+    rect.setAttribute("height", rectProps.height);
+    rect.setAttribute("fill", rectProps.fill);
     rect.setAttribute("stroke", "gray");
     return rect;
 }
